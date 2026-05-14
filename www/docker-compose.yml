@@ -1,0 +1,16 @@
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: smart_meeting
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db_data:/var/lib/mysql
+  web:
+    image: php:8.2-apache
+    ports:
+      - "8081:80"
+    volumes:
+      - ./www:/var/var/www/html
